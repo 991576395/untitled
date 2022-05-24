@@ -23,13 +23,15 @@ public class SplitStrinToMatch {
             int index = -1;
             String key = String.valueOf(source.charAt(i));
             while((index = targe.indexOf(key,index)) != -1){
-                numbers.add(index);
-                if(stringListMap.get(key) == null){
-                    List<Integer> integers = new ArrayList<>();
-                    integers.add(index);
-                    stringListMap.put(key,integers);
-                }else{
-                    stringListMap.get(key).add(index);
+                if(numbers.contains(index)){
+                    numbers.add(index);
+                    if(stringListMap.get(key) == null){
+                        List<Integer> integers = new ArrayList<>();
+                        integers.add(index);
+                        stringListMap.put(key,integers);
+                    }else{
+                        stringListMap.get(key).add(index);
+                    }
                 }
                 index++;
             }
